@@ -17,6 +17,6 @@ class MyTheme{
        brightness: Brightness.dark,
     );
     static Color creamColor = Color.fromARGB(255, 240, 236, 236);
-    static Color darkBlue = Color.fromARGB(255, 31, 6, 174);
+    static Color darkBlue = Color.fromARGB(255, 12, 3, 66);
     
 }
