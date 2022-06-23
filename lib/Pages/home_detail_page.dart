@@ -28,8 +28,8 @@ class HomeDetailPage extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.xl2.make(),
-            ).wh(100, 50)
+              child: "Add To Cart".text.make(),
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
@@ -54,6 +54,8 @@ class HomeDetailPage extends StatelessWidget {
                         catalog.name.text.xl4.color(MyTheme.darkBlue).bold.make(),
                         catalog.desc.text.textStyle(context.captionStyle).xl.make(),
                         10.heightBox,
+                        "Still on window and raven uncertain lonely. Murmured i with dared came. And one air more said tinkled my, heart."
+                        .text.textStyle(context.captionStyle).make().p8() ,
                       ],
                     ).py64(),
                   ),
