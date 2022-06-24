@@ -16,6 +16,7 @@ class MyTheme{
         iconTheme: IconThemeData(color: Colors.black),
         // ignore: deprecated_member_use
         textTheme: Theme.of(context).textTheme,
+        
       ),
     );
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -26,11 +27,13 @@ class MyTheme{
        buttonColor: lightBlue,
        accentColor: Colors.white,
       appBarTheme: AppBarTheme(
-        color: Colors.white,
+        color: Colors.black,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-        // ignore: deprecated_member_use
-        textTheme: Theme.of(context).textTheme,
+        iconTheme: IconThemeData(color: Colors.white),
+        textTheme: Theme.of(context).textTheme.copyWith(
+              headline6:
+                  context.textTheme.headline6!.copyWith(color: Colors.white)
+            ),
       ),
     );
     static Color creamColor = Color.fromARGB(255, 240, 236, 236);
