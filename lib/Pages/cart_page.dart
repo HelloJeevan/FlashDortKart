@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/core/store.dart';
 import 'package:flutter_basic/models/cart.dart';
@@ -35,7 +37,11 @@ class _cartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}".text.xl5.color(context.theme.accentColor).make(),
+          VxConsumer(notifications: {}, mutations: {RemoveMutation}, builder: (BuildContext context, store, VxStatus? status) { return "\$${_cart.totalPrice}"
+            .text.
+            xl5.
+            color(context.theme.accentColor).make(); },),
+          
           30.widthBox,
           ElevatedButton(onPressed: (){
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -57,6 +63,7 @@ class _cartList extends StatelessWidget {
  _cartList({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart ;
     return _cart.items.isEmpty? "Nothing to Show".text.xl3.makeCentered(): ListView.builder(
       itemCount: _cart.items.length,
@@ -65,7 +72,7 @@ class _cartList extends StatelessWidget {
         trailing: IconButton(
         icon: Icon(Icons.remove_circle_outline),
           onPressed: (){
-            _cart.remove(_cart.items[index]);
+            RemoveMutation(_cart.items[index] );
             
           }, 
          ),
